@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Estelle Maturan">
+		<meta name="keywords" content="HTML, CSS, JavaScript">
+	</head>
+	<body onload="generate()">
+	<body>
+        <div id = "div1"></div>
+		<div id = "div2"></div>
+		<div id = "date"></div>
+		<script>
+            function generate() {
+				var x = "Randomly generated number: ";
+				var random = randomNumber();
+				var y = x.concat(" ", random);
+				div1.innerHTML = y;
+			
+				var number = random.toString();
+				var numDigits = number.length;
+				var ones, tens, hundreds;
+			
+				switch(numDigits) {
+					case 1:
+						ones = number[0];
+						div2.innerHTML = "Breakdown: " + ones;
+						break;
+					case 2:
+						ones = number[1];
+						tens = number[0] * 10;
+						div2.innerHTML = "Breakdown: " + tens + ", " + ones;
+						break;
+					case 3:
+						ones = number[2];
+						tens = number[1] * 10;
+						hundreds = number[0] * 100;
+						div2.innerHTML = "Breakdown: " + hundreds + ", " + tens + ", " + ones;
+						break;
+					case 4:
+						ones = number[3];
+						tens = number[2] * 10;
+						hundreds = number[1] * 100;
+						div2.innerHTML = "Breakdown: " + hundreds + ", " + tens + ", " + ones;
+						break;
+				}
+						
+				function randomNumber() {
+					var randomNum = Math.floor(Math.random() * 1001);
+					return randomNum;
+				}
+
+				var datetoday = new Date();
+				document.getElementById("date").innerHTML = "Date: " + datetoday;
+			}
+		</script>
+	</body>
+</html>
